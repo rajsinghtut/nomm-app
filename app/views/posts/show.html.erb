@@ -4,6 +4,11 @@
 <%= @post.description %><br>
 <%= @post.location %><br><br>
 
+<%= image_tag @post.picture.url %>
+<%= image_tag @post.picture.url(:medium) %>
+<%= image_tag @post.picture.url(:cropped) %>
+<%= image_tag @post.picture.url(:thumb) %><br><br>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
 

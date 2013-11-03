@@ -27,7 +27,6 @@
     }  
 </script> 
 
-
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -52,6 +51,7 @@
   <p>Zipcode: <%= f.text_field :zip %></p>
   <p>Details: <%= f.text_field :description %> </p>
   <p>Location: <%= f.text_field :location %></p>
+  <p>Picture: <%= f.file_field :picture %></p>
   <p><%= f.hidden_field :latitude %></p>
   <p><%= f.hidden_field :longitude %></p>
 
