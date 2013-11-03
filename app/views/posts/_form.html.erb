@@ -25,9 +25,10 @@
         $('[id=post_longitude]').val(position.coords.longitude);
         
     }  
-</script> 
+</script>
 
-<%= form_for(@post) do |f| %>
+
+<%= form_for @post, :html=>{:class => "form-horizontal", :role => "form"} do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -36,7 +37,7 @@
       <% @post.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-      </ul>
+      </ul>s
     </div>
   <% end %>
 
@@ -44,19 +45,51 @@
   <% if user_signed_in? %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   <% end %>
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
+ 
+  <div class="form-group">
+    <label class="col-sm-2 control-label">
+      Photo 
+    </label>
+    <div class="col-sm-10">
+      <%= f.file_field :picture %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">
+      Location 
+    </label>
+    <div class="col-sm-10">
+      <%= f.text_field :location, :placeholder=>"e.g. Google HQ in Mountain View"  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">
+      Details 
+    </label>
+    <div class="col-sm-10">
+      <%= f.text_area :description, :size => "29x5", :placeholder=>"e.g. Left over pizza from our meetup." %>
+    </div>
+  </div> 
+    <div class="form-group">
+    <label class="col-sm-2 control-label">
+      Offer Expires 
+    </label>
+    <div class="col-sm-10">
+      <%= f.select(:endtime, options_for_select([
+      ["in 30 mins",Time.now+(60*30)],
+      ["in 45 mins",Time.now+(60*45)],
+      ["in 1 hour",Time.now+(60*60)],
+      ["in 1.5 hours",Time.now+(60*60*1.5)],
+      ["in 2 hours",Time.now+(60*60*2)],
+      ["in 2.5 hours",Time.now+(60*60*2.5)],
+      ["in 3 hours",Time.now+(60*60*3)]
+      ]), class: "form-control")%>
+    </div>
+  </div>  
 
-  <p>Address: <%= f.text_field :address %></p>
-  <p>City: <%= f.text_field :city %></p>
-  <p>State: <%= f.text_field :state %></p>
-  <p>Zipcode: <%= f.text_field :zip %></p>
-  <p>Details: <%= f.text_field :description %> </p>
-  <p>Location: <%= f.text_field :location %></p>
-  <p>Picture: <%= f.file_field :picture %></p>
-  <p><%= f.hidden_field :latitude %></p>
-  <p><%= f.hidden_field :longitude %></p>
-
-
-  <div class="actions">
-    <%= f.submit %>
+  <div>
+    <%= f.submit "Post Nomm", id:"button", class: "actions btn btn-large frontpage-button2" %>
   </div>
 <% end %>

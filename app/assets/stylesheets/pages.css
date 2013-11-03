@@ -1,3 +1,8 @@
+body {
+	background-image: url("tile.png");
+	background-repeat: repeat;
+}
+
 .frontpage-header {
 	min-height: 600px;
 	background: url('serving-hands.jpg') center center no-repeat;
@@ -5,27 +10,54 @@
 }
 
 .frontpage-logo {
-	padding-top: 150px;
+	padding-top: 100px;
 	padding-bottom: 50px;
 }
 
 .frontpage-subtext {
 	color: white;
-	font-size: 36px;
+	font-size: 24px;
 	padding-bottom: 50px;
+	text-shadow: 2px 2px 2px #666666;
 }
 
 .frontpage-button1{
 	margin:10px;
-	background-color:#DEBB27;
-	border-color:#DEBB27;
+	background-color:#FFC800;
+	border-color:none;
 	height:40px;
+	box-shadow: 0px 2px 2px #666666;
+	width:140px;
 }
 
-.frontpage-button2{
+.frontpage-button1:hover{
+	background-color:#9D7614;
+}
+
+.frontpage-button1 a{
+	color:#ffffff;
+}
+
+.frontpage-button1 a:hover{
+	text-decoration: none;
+}
+
+#button{
 	margin:10px;
-	background-color:#72A000;
-	border-color:#72A000;	
+	background-color:#71A000;
+	box-shadow: 0px 2px 2px #666666;
+	border-color:none;
+	color:#ffffff;
+	width:140px;
+}
+
+#button:hover{
+	background-color: #557B00;
+}
+
+#button a:hover{
+	text-decoration: none;
+	color: #ffffff;
 }
 
 .frontpage-nav{
@@ -38,3 +70,8 @@ a.frontpage-nav{
 	color: #ffffff;
 	text-decoration: none;
 }
+
+
+
+
+

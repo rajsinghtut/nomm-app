@@ -20,9 +20,9 @@ class FindController < ApplicationController
 		@latitude = params[:lat]
 		@longitude = params[:lon]
 		#@results = Geocoder.search("@latitude, @longitude")
-		all_posts = Post.all
-		@sorted_posts = all_posts.sort_by(&:created_at)
-		#@sorted_posts = Post.find :all, :order => "created_at DESC"
+		#@sorted_posts = all_posts.sort_by(&:created_at)
+		#all_posts = Post.all
+		@sorted_posts = Post.find :all, :order => "created_at DESC"
 		@current_distance=calculate_distance(@sorted_posts,@latitude,@longitude)
 
 	end
