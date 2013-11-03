@@ -1,3 +1,16 @@
-<% @posts.each do |p| %>
-	<%= p.description %> <br>
-<%end%>
+<table class="table">
+	<tr>
+		<th>Image</th>
+		<th>Details</th>
+	</tr>
+
+	<%= @latitude %>
+	<%= @longitude %>
+
+	<% @posts.each do |p| %>
+	<tr>
+		<td><img src="http://placehold.it/100x100"></td>
+		<td><%= p.description %></td>
+	</tr>
+	<%end%>
+</div>

@@ -8,6 +8,7 @@ gem 'rails', '3.2.12'
 gem 'pg'
 gem 'devise'
 gem 'awesome_print'
+gem 'meta_request', '> 0.2.1'
 
 
 

@@ -1,4 +1,30 @@
-<%= link_to "Find Free Food", find_path, :class => "btn btn-success btn-large"%><br><br>
-<%= link_to "Post Free Food", new_post_path, :class => "btn btn-primary btn-large"%><br>
+<div id="button" class="btn btn-success btn-large">Find Free Food </div><br><br>
+<%= link_to "Post Free Food", new_post_path, :class => "btn btn-primary btn-large"%><br><br><br>
 
-
+    <script>  
+        jQuery(window).ready(function(){  
+            jQuery("#button").click(initiate_geolocation);  
+        });  
+        function initiate_geolocation() {  
+            navigator.geolocation.getCurrentPosition(handle_geolocation_query,handle_errors);  
+        }  
+        function handle_errors(error)  
+        {  
+            switch(error.code)  
+            {  
+                case error.PERMISSION_DENIED: alert("user did not share geolocation data");  
+                break;  
+                case error.POSITION_UNAVAILABLE: alert("could not detect current position");  
+                break;  
+                case error.TIMEOUT: alert("retrieving position timed out");  
+                break;  
+                default: alert("unknown error");  
+                break;  
+            }  
+        }  
+        function handle_geolocation_query(position){
+        	$.cookie('lat', position.coords.latitude);
+        	$.cookie('lon', position.coords.longitude);
+        	window.location="/find/"+$.cookie('lat')+"/"+$.cookie('lon');
+        }  
+    </script> 

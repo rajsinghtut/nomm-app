@@ -3,6 +3,7 @@ Dibz::Application.routes.draw do
   resources :posts
   devise_for :users
   match '/find' => 'find#find'
+  match '/find/:lat/:lon' => 'find#find', :constraints => {:lat => /[\w-]+[\w.]+?/, :lon => /[\w-]+[\w.]+?/}
 
   root :to => 'pages#home'
 

@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse" role="navigation">
@@ -36,21 +37,5 @@
 <div class="container">
 <%= yield %>
 </div>
-<script>
-	var x=document.getElementById("demo");
-	function getLocation()
-	  {
-	  if (navigator.geolocation)
-	    {
-	    navigator.geolocation.getCurrentPosition(showPosition);
-	    }
-	  else{x.innerHTML="Geolocation is not supported by this browser.";}
-	  }
-	function showPosition(position)
-	  {
-	  x.innerHTML="Latitude: " + position.coords.latitude + 
-	  "<br>Longitude: " + position.coords.longitude; 
-	  }
-</script>
 </body>
 </html>

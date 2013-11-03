@@ -15,8 +15,17 @@
   <% if user_signed_in? %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   <% end %>
-  <p>Description: <%= f.text_field :description %> </p>
+
+  <p>Address: <%= f.text_field :address %></p>
+  <p>City: <%= f.text_field :city %></p>
+  <p>State: <%= f.text_field :state %></p>
+  <p>Zipcode: <%= f.text_field :zip %></p>
+  <p>Details: <%= f.text_field :description %> </p>
   <p>Location: <%= f.text_field :location %></p>
+  <p>Latitude: <%= f.text_field :latitude %></p>
+  <p>Longitude: <%= f.text_field :longitude %></p>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
