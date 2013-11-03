@@ -1,3 +1,33 @@
+<script>  
+    jQuery(window).ready(function(){  
+        initiate_geolocation();  
+    });  
+    function initiate_geolocation() {  
+        navigator.geolocation.getCurrentPosition(handle_geolocation_query,handle_errors);  
+    }  
+    function handle_errors(error)  
+    {  
+        switch(error.code)  
+        {  
+            case error.PERMISSION_DENIED: alert("user did not share geolocation data");  
+            break;  
+            case error.POSITION_UNAVAILABLE: alert("could not detect current position");  
+            break;  
+            case error.TIMEOUT: alert("retrieving position timed out");  
+            break;  
+            default: alert("unknown error");  
+            break;  
+        }  
+    }  
+    function handle_geolocation_query(position){
+
+        $('[id=post_latitude]').val(position.coords.latitude);
+        $('[id=post_longitude]').val(position.coords.longitude);
+        
+    }  
+</script> 
+
+
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -22,8 +52,8 @@
   <p>Zipcode: <%= f.text_field :zip %></p>
   <p>Details: <%= f.text_field :description %> </p>
   <p>Location: <%= f.text_field :location %></p>
-  <p>Latitude: <%= f.text_field :latitude %></p>
-  <p>Longitude: <%= f.text_field :longitude %></p>
+  <p><%= f.hidden_field :latitude %></p>
+  <p><%= f.hidden_field :longitude %></p>
 
 
   <div class="actions">

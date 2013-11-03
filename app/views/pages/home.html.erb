@@ -1,30 +1,72 @@
-<div id="button" class="btn btn-success btn-large">Find Free Food </div><br><br>
-<%= link_to "Post Free Food", new_post_path, :class => "btn btn-primary btn-large"%><br><br><br>
-
-    <script>  
-        jQuery(window).ready(function(){  
-            jQuery("#button").click(initiate_geolocation);  
-        });  
-        function initiate_geolocation() {  
-            navigator.geolocation.getCurrentPosition(handle_geolocation_query,handle_errors);  
-        }  
-        function handle_errors(error)  
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nomm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <script>  
+    jQuery(window).ready(function(){  
+        initiate_geolocation();  
+    });  
+    function initiate_geolocation() {  
+        navigator.geolocation.getCurrentPosition(handle_geolocation_query,handle_errors);  
+    }  
+    function handle_errors(error)  
+    {  
+        switch(error.code)  
         {  
-            switch(error.code)  
-            {  
-                case error.PERMISSION_DENIED: alert("user did not share geolocation data");  
-                break;  
-                case error.POSITION_UNAVAILABLE: alert("could not detect current position");  
-                break;  
-                case error.TIMEOUT: alert("retrieving position timed out");  
-                break;  
-                default: alert("unknown error");  
-                break;  
-            }  
+            case error.PERMISSION_DENIED: alert("user did not share geolocation data");  
+            break;  
+            case error.POSITION_UNAVAILABLE: alert("could not detect current position");  
+            break;  
+            case error.TIMEOUT: alert("retrieving position timed out");  
+            break;  
+            default: alert("unknown error");  
+            break;  
         }  
-        function handle_geolocation_query(position){
-        	$.cookie('lat', position.coords.latitude);
-        	$.cookie('lon', position.coords.longitude);
-        	window.location="/find/"+$.cookie('lat')+"/"+$.cookie('lon');
-        }  
-    </script> 
+    }  
+    function handle_geolocation_query(position){
+        $.cookie('lat', position.coords.latitude);
+        $.cookie('lon', position.coords.longitude);
+        var url = "/find/"+position.coords.latitude+"/"+position.coords.longitude;
+    }  
+
+    jQuery(window).ready(function(){  
+        $("#button").click(function() {
+            window.location="/find/"+$.cookie('lat')+"/"+$.cookie('lon');
+        });
+ 
+    });  
+
+</script> 
+
+</head>
+
+<div class="frontpage-header">
+  <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-9 frontpage-nav">
+                    <% if user_signed_in? %>
+                        <%= link_to current_user.email, edit_user_registration_path %> &nbsp;&nbsp;&nbsp;
+                        <%= link_to "Sign out", "/users/sign_out", :method => "DELETE" %>
+                    <% else %>
+                        <%= link_to "Sign Up", new_user_registration_path %> &nbsp;&nbsp;&nbsp;
+                        <%= link_to "Sign In", new_user_session_path %>
+                    <% end %>
+            </div>
+        <div class="row">
+            <div class="col-md-12 frontpage-logo" align="center"><img src="http://placehold.it/200x100"></div>
+        </div>
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 frontpage-subtext" align="center">Nomm is a platform that helps you find and post free food.</div>                                 
+        </div>
+        <div class="row" align="center">
+                <div id="button" class="btn btn-large frontpage-button2">I NEED FOOD</div>
+                <div class="btn btn-large frontpage-button1"> <%= link_to "I HAVE FOOD", new_post_path %> </div>
+                
+        </div>
+    </div>
+</div>
+

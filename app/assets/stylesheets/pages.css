@@ -1,0 +1,40 @@
+.frontpage-header {
+	min-height: 600px;
+	background: url('serving-hands.jpg') center center no-repeat;
+	background-size: cover;
+}
+
+.frontpage-logo {
+	padding-top: 150px;
+	padding-bottom: 50px;
+}
+
+.frontpage-subtext {
+	color: white;
+	font-size: 36px;
+	padding-bottom: 50px;
+}
+
+.frontpage-button1{
+	margin:10px;
+	background-color:#DEBB27;
+	border-color:#DEBB27;
+	height:40px;
+}
+
+.frontpage-button2{
+	margin:10px;
+	background-color:#72A000;
+	border-color:#72A000;	
+}
+
+.frontpage-nav{
+	color: white;
+	font-size: 14px;
+	z-index: 1;
+}
+
+a.frontpage-nav{
+	color: #ffffff;
+	text-decoration: none;
+}

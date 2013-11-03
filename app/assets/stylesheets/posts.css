@@ -1,0 +1,21 @@
+.location_text {
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.location_subtext {
+	font-size: 18px;
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.post_subtext {
+	font-size: 14px;
+	color: lightgrey;
+}
+
+.post_description {
+	font-size: 18px;
+	text-align: center;
+}

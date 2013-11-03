@@ -9,6 +9,7 @@ gem 'pg'
 gem 'devise'
 gem 'awesome_print'
 gem 'meta_request', '> 0.2.1'
+gem 'geocoder'
 
 
 
