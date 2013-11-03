@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dibz</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<nav class="navbar navbar-inverse" role="navigation">
+	  	<!-- Brand and toggle get grouped for better mobile display -->
+	  	<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+		    	<span class="sr-only">Toggle navigation</span>
+		    	<span class="icon-bar"></span>
+		    	<span class="icon-bar"></span>
+		    	<span class="icon-bar"></span>
+		    </button>
+		    <%= link_to "Dibz", root_path, :class =>"navbar-brand" %>
+		</div>
+
+	  	<!-- Collect the nav links, forms, and other content for toggling -->
+	  	<div class="collapse navbar-collapse navbar-ex1-collapse">
+	    	<ul class="nav navbar-nav navbar-right">
+	    		<% if user_signed_in? %>
+	    			<li><%= link_to current_user.email, edit_user_registration_path %></li>
+					<li><%= link_to "Sign out", "/users/sign_out", :method => "DELETE" %></li>
+	    		<% else %>
+	        		<li><%= link_to "Sign Up", new_user_registration_path %></li>
+	        		<li><%= link_to "Sign In", new_user_session_path %></li>
+	        	<% end %>
+	    	</ul>
+	  	</div><!-- /.navbar-collapse -->
+	</nav>
+
+<div class="container">
+<%= yield %>
+</div>
+<script>
+	var x=document.getElementById("demo");
+	function getLocation()
+	  {
+	  if (navigator.geolocation)
+	    {
+	    navigator.geolocation.getCurrentPosition(showPosition);
+	    }
+	  else{x.innerHTML="Geolocation is not supported by this browser.";}
+	  }
+	function showPosition(position)
+	  {
+	  x.innerHTML="Latitude: " + position.coords.latitude + 
+	  "<br>Longitude: " + position.coords.longitude; 
+	  }
+</script>
+</body>
+</html>
