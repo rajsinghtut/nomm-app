@@ -1,6 +1,6 @@
 
 <div class="col-md-12" style="align:center;">
-	<div class="row-inner">
+	<div class="row-inner" align="center">
 		<div class="show_subtext"><%= time_ago_in_words(@post.endtime) %></div>
 		<% if @post.picture.url(:cropped)%>
 			<div align="center"><%= image_tag @post.picture.url(:cropped), :class=>"picture" %></div>
