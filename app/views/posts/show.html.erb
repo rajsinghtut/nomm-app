@@ -8,6 +8,10 @@
 			<div align="center"><img src="http://placehold.it/300x300" class="picture" ></div>
 		<% end %>
 			<div class="post_location"><%= @post.location %><br></div>
-			<div class="post_description"><%= @post.description %><br></div>	
+			<div class="post_description"><%= @post.description %><br></div><br><br>
+			<% if @post.latitude %>
+				<img src="http://maps.googleapis.com/maps/api/staticmap?center=<%=@post.latitude%>,<%=@post.longitude%>&zoom=14&size=300x300&sensor=true&markers=color:red%7C<%=@post.latitude%>,<%=@post.longitude%>">
+			<% else %>
+			<% end %>
 	</div>
 </div>
