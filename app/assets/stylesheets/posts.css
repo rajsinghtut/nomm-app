@@ -7,12 +7,19 @@
 .location_subtext {
 	font-size: 18px;
 	text-align: center;
-	margin-bottom: 60px;
+	margin-bottom: 20px;
 }
 
 .post_subtext {
 	font-size: 14px;
 	color: darkgrey;
+	text-align:center;
+}
+
+.show_subtext {
+	font-size: 14px;
+	color: darkgrey;
+	text-align:left;
 }
 
 .post_description {
@@ -20,6 +27,11 @@
 	text-align: center;
 }
 
+.post_location {
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+}
 .new_title {
 	font-size: 18px;
 	text-align: left;
@@ -31,3 +43,38 @@
 	text-align: left;
 	margin-bottom: 10px;
 }
+
+.find_details{
+	align:center;
+}
+
+img.picture{
+	border: 5px solid #ffffff;
+}
+
+.subtext-row{
+	width:300px;
+}
+
+body.thanks {
+	background-color: #99B67C;
+	background: url('taco.jpg') center center no-repeat;
+	background-size: cover;
+	background-position-y: 50px;
+	min-height: 500px; 
+}
+
+body.thanks #button{
+	margin-top: 410px;	
+	}
+
+.thanks-title{
+	font-size: 24px;
+	color: #ffffff;
+}
+
+.row-inner{
+	text-align: center;
+	width:300px;
+}
+

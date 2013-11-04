@@ -1,11 +1,13 @@
-<p id="notice"><%= notice %></p>
 
-<%= @post.user_id %><br>
-<%= @post.description %><br>
-<%= @post.location %><br>
-
-<%= image_tag @post.picture.url(:thumb) %><br><br>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-
+<div class="col-md-12" style="align:center;">
+	<div class="row-inner">
+		<div class="show_subtext"><%= time_ago_in_words(@post.endtime) %></div>
+		<% if @post.picture.url(:cropped)%>
+			<div align="center"><%= image_tag @post.picture.url(:cropped), :class=>"picture" %></div>
+		<% else %>
+			<div align="center"><img src="http://placehold.it/300x300" class="picture" ></div>
+		<% end %>
+			<div class="post_location"><%= @post.location %><br></div>
+			<div class="post_description"><%= @post.description %><br></div>	
+	</div>
+</div>

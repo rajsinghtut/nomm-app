@@ -49,6 +49,12 @@ body {
 	border-color:none;
 	color:#ffffff;
 	width:140px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#button a{
+	color: #ffffff;
 }
 
 #button:hover{

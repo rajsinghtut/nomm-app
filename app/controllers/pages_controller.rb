@@ -3,4 +3,7 @@ class PagesController < ApplicationController
 		render :layout => false
 
 	end
+	def thanks
+
+	end
 end
