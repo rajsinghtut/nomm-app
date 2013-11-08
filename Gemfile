@@ -12,7 +12,7 @@ gem 'meta_request', '> 0.2.1'
 gem 'geocoder'
 gem 'paperclip'
 gem 'aws-sdk'
-
+gem 'newrelic_rpm'
 
 
 # Gems used only for assets and not required
