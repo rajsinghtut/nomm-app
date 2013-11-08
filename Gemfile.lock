@@ -75,7 +75,6 @@ GEM
       railties
     mime-types (1.25)
     multi_json (1.8.2)
-    newrelic_rpm (3.5.4.34)
     nokogiri (1.5.10)
     orm_adapter (0.4.0)
     paperclip (3.5.1)
@@ -148,7 +147,6 @@ DEPENDENCIES
   geocoder
   jquery-rails
   meta_request (> 0.2.1)
-  newrelic_rpm
   paperclip
   pg
   rails (= 3.2.12)
